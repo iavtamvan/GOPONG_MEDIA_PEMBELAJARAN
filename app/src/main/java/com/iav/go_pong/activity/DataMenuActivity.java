@@ -18,14 +18,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.iav.go_pong.R;
-import com.iav.go_pong.adapter.DataMenuAdapter;
+import com.iav.go_pong.adapter.QuizAdapter;
 import com.iav.go_pong.helper.Config;
 import com.iav.go_pong.model.DataMenuModel;
 import com.iav.go_pong.rest.ApiService;
 import com.iav.go_pong.rest.Client;
 import com.pierfrancescosoffritti.youtubeplayer.player.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayer;
-import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerFullScreenListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerInitListener;
 import com.pierfrancescosoffritti.youtubeplayer.player.YouTubePlayerView;
 
@@ -41,7 +40,7 @@ public class DataMenuActivity extends AppCompatActivity {
     private RecyclerView rv;
 
     private ArrayList<DataMenuModel> dataMenuModels;
-    private DataMenuAdapter dataMenuAdapter;
+    private QuizAdapter quizAdapter;
     private String nameMenu;
 
     private LinearLayout div;
@@ -68,10 +67,10 @@ public class DataMenuActivity extends AppCompatActivity {
                     public void onResponse(Call<ArrayList<DataMenuModel>> call, Response<ArrayList<DataMenuModel>> response) {
                         if (response.isSuccessful()) {
                             dataMenuModels = response.body();
-//                            dataMenuAdapter = new DataMenuAdapter(DataMenuActivity.this, dataMenuModels);
+//                            quizAdapter = new QuizAdapter(DataMenuActivity.this, dataMenuModels);
 //                            rv.setLayoutManager(new LinearLayoutManager(DataMenuActivity.this));
-//                            rv.setAdapter(dataMenuAdapter);
-//                            dataMenuAdapter.notifyDataSetChanged();
+//                            rv.setAdapter(quizAdapter);
+//                            quizAdapter.notifyDataSetChanged();
                             for (DataMenuModel s : dataMenuModels) {
                                 if (s.getType() != null && s.getType().contains(nameMenu)) {
 

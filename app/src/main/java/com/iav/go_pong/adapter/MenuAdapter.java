@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.iav.go_pong.R;
 import com.iav.go_pong.activity.DataMenuActivity;
+import com.iav.go_pong.activity.QuizActivity;
 import com.iav.go_pong.helper.Config;
 import com.iav.go_pong.model.MenuModel;
 
@@ -45,9 +47,18 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         holder.cvklik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(new Intent(context, DataMenuActivity.class));
-                intent.putExtra(Config.BUNDLE_NAME_MENU, menuModels.get(position).getNamaMenu());
-                context.startActivity(intent);
+
+                if (menuModels.get(position).getNamaMenu().contains("LATIHAN")) {
+
+                    Intent intent = new Intent(new Intent(context, QuizActivity.class));
+                    intent.putExtra(Config.BUNDLE_NAME_MENU, menuModels.get(position).getNamaMenu());
+                    context.startActivity(intent);
+                } else {
+
+                    Intent intent = new Intent(new Intent(context, DataMenuActivity.class));
+                    intent.putExtra(Config.BUNDLE_NAME_MENU, menuModels.get(position).getNamaMenu());
+                    context.startActivity(intent);
+                }
             }
         });
     }

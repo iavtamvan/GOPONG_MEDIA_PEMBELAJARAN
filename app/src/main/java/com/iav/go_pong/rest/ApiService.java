@@ -1,6 +1,7 @@
 package com.iav.go_pong.rest;
 
 import com.iav.go_pong.model.DataMenuModel;
+import com.iav.go_pong.model.LatihanSoalModel;
 import com.iav.go_pong.model.MenuModel;
 
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ public interface ApiService {
     @GET("exec")
     Call<ArrayList<DataMenuModel>> getDataMenu(@Query("action") String action,
                                                @Query("sheetName") String sheetName);
+
+    @GET("exec")
+    Call<ArrayList<LatihanSoalModel>> getLatihanSoal(@Query("action") String action,
+                                                     @Query("sheetName") String sheetName);
 
 
 }
