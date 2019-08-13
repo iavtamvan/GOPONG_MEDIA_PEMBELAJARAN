@@ -1,6 +1,7 @@
 package com.iav.go_pong.rest;
 
 import com.iav.go_pong.model.DataMenuModel;
+import com.iav.go_pong.model.ImageSliderModel;
 import com.iav.go_pong.model.LatihanSoalModel;
 import com.iav.go_pong.model.MenuModel;
 
@@ -22,6 +23,10 @@ public interface ApiService {
 
     @GET("exec")
     Call<ArrayList<LatihanSoalModel>> getLatihanSoal(@Query("action") String action,
+                                                     @Query("sheetName") String sheetName);
+
+    @GET("exec")
+    Call<ArrayList<ImageSliderModel>> getImageSlider(@Query("action") String action,
                                                      @Query("sheetName") String sheetName);
 
 
